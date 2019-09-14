@@ -4,15 +4,53 @@
 RubyTextView is an android view that can create TextView with ruby text, like furigana in Japanese or pinyin in Chinese.
 
 ## Preview
-<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.png" alt="preview" width="300"/>
+<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.jpg" alt="preview" width="300"/>
 
 
 ## Gradle
 ```java
-compile 'me.weilunli.views:rubytextview:1.0.0'
+compile 'me.weilunli.views:rubytextview:1.1.0'
 ```
-## XML Layout
+## How to use
+#### XML Layout (Two methods)
+##### Method1: Set `app:combinedText` (Recommend)
+
+The `app:combinedText` format is like this `令|れい 和|わ`. 
+1. Put the `|` between the text and ruby text 
+2. put one ` ` (white space) before text and one ` ` after ruby text.
 ```java
+<me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:rubyTextSize="16sp"
+        app:combinedText="天|てん 気|き が 良|い い  "/>
+
+<me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        app:rubyTextSize="16sp"
+        app:combinedText="我|wǒ 喜|xǐ 歡|huān 吃香 蕉|jiāo"/>
+```
+##### Method2: Set `android:text` and `app:rubyText` seperately.
+***In this methond, you have to count the characters skipped by yourself.***
+
+The `app:rubyText` format is like this `れい|わ`. 
+
+```java
+<me.weilunli.views.RubyTextView  
+  android:layout_width="wrap_content"  
+  android:layout_height="wrap_content"  
+  android:text="平成"  
+  android:textSize="26sp"
+  app:rubyText="へい|せい"  
+  app:rubyTextSize="10sp"
+  app:spacing="5sp"/> 
+
+
+<!------>
+
 <me.weilunli.views.RubyTextView  
   android:layout_width="wrap_content"  
   android:layout_height="wrap_content"  
@@ -20,20 +58,8 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
   android:textSize="20sp"  
   app:rubyText="てん|き||い|||||さん|ぽ"  
   app:rubyTextSize="10sp"
-  app:rubyTextColor="@color/black"  
-  app:spacing="0sp"/>
-  
-<!------------------------------------>
+  app:rubyTextColor="@color/black"/>
 
-<me.weilunli.views.RubyTextView  
-  android:layout_width="wrap_content"  
-  android:layout_height="wrap_content"  
-  android:text="今天天氣很好，去散步吧"  
-  android:textSize="26sp"
-  app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"  
-  app:rubyTextSize="10sp"
-  app:rubyTextColor="@color/blue"  
-  app:spacing="5sp"/> 
 ```
 ## Java
 ```java
@@ -44,13 +70,15 @@ rtv.setText("令和")
    .setTextSize(30);
    .setRubyTextSize(14)
    .setRubyTextColor(getResources().getColor(R.color.red)
-   .setSpacing(5)          
+   .setSpacing(5) 
+   .setCombinedText("平|へい 成|せい") 
 ```
 ## Attributes
 `app:rubyText `: The ruby text onto the text, split by whitespace character.
 `app:rubyTextSize `: The size of ruby text.
 `app:rubyTextColor`: The color of ruby text.
 `app:spacing`: The spacing between text and ruby text.
+`app:setCombinedText`: Set the text and ruby text simultaneously by specific format mentioned above.
 
 
 
@@ -58,8 +86,8 @@ rtv.setText("令和")
 - Only single line is supported (multiline is not supported yet).
 - `rubyText` string is split by `|` character. So if there are some word you do not want to ruby it, you have to add extra `|` by yourself. For example,  The ruby text of `"委員"` is `"い|いん"`, but in case of  the ruby text of `"良い点"` is `い||てん`.
 
-## TODO
-- Make the processing of adding text and rubyText easily. 
+<!-- ## TODO
+- Make the processing of adding text and rubyText easily.  -->
 
 # License
 ```
