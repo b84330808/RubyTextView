@@ -37,7 +37,7 @@
         app:rubyTextSize="10sp"
         app:spacing="5sp"
         android:layout_marginTop="10dp"/>
-    <!---->
+
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,6 +48,49 @@
         app:rubyTextSize="16sp"
         app:rubyTextColor="@color/blue"
         app:spacing="2sp"
+        android:layout_marginTop="10dp"/>
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/red"
+        android:text="大家好"
+        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
+        app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 天|てん 気|き が 良|い い  "
+        app:rubyTextSize="16sp"
+        app:rubyTextColor="@color/blue"
+        app:spacing="2sp"
+        android:layout_marginTop="10dp"/>
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大丈夫"
+        android:textSize="30sp"
+        android:textColor="@color/red"
+        app:rubyText="|だいじょうぶ"
+        app:rubyTextSize="16sp"
+        app:rubyTextColor="@color/blue"
+        app:spacing="2sp"
+        android:layout_marginTop="10dp"/>
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="大丈夫"
+        android:textSize="32sp"
+        app:rubyText="|だいじょうぶ"
+        app:rubyTextSize="16sp" />
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        app:rubyText="|だいじょうぶ"
+        app:rubyTextSize="16sp"
+        app:combinedText="我|wǒ 喜|xǐ 歡|huān 吃香 蕉|jiāo"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>
