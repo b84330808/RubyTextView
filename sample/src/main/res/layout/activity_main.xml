@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="天気が良いから、散歩しましょう"
         android:textSize="20sp"
-        app:rubyText="てん き  い     さん ぽ"
+        app:rubyText="てん|き||い|||||さん|ぽ"
         app:rubyTextSize="10sp"
         app:spacing="0sp"/>
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="天気が良いから、散歩しましょう"
         android:textSize="20sp"
-        app:rubyText="てん き  い     さん ぽ"
+        app:rubyText="てん|き||い|||||さん|ぽ"
         app:rubyTextSize="10sp"
         app:spacing="5sp"
         android:layout_marginTop="10dp"/>
@@ -33,7 +33,7 @@
         android:text="今天天氣很好，去散步吧"
         android:textSize="26sp"
         android:textColor="@color/red"
-        app:rubyText="jīn tiān tiān qì hěn hǎo  qù sàn bù ba"
+        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
         app:rubyTextSize="10sp"
         app:spacing="5sp"
         android:layout_marginTop="10dp"/>
@@ -44,7 +44,7 @@
         android:text="今天天气很好，去散步吧"
         android:textSize="30sp"
         android:textColor="@color/red"
-        app:rubyText="jīn tiān tiān qì hěn hǎo  qù sàn bù ba"
+        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
         app:rubyTextSize="16sp"
         app:rubyTextColor="@color/blue"
         app:spacing="2sp"

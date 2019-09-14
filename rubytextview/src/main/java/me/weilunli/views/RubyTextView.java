@@ -99,7 +99,7 @@ public class RubyTextView extends AppCompatTextView {
         // Draw ruby text
         rubyTextPaint.setTextSize((getRubyTextSize()));
         rubyTextPaint.setColor(rubyTextColor);
-        String[] splited = getRubyText().split(" ");
+        String[] splited = getRubyText().split("\\|");
         for (int i = 0; i < splited.length; i++) {
             rubyTextPaint.getTextBounds(splited[i], 0, splited[i].length(), mRect);
             float rubyTextXpos = getTextSize() * (i + (1 / 2f)) - (mRect.width() * (1 / 2f));

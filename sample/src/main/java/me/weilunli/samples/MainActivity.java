@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         RubyTextView rubyTextView = new RubyTextView(this);
         rubyTextView.setText("令和");
-        rubyTextView.setRubyText("れい わ");
+        rubyTextView.setRubyText("れい|わ");
         rubyTextView.setTextSize(30);
         rubyTextView.setRubyTextSize(14);
         rubyTextView.setRubyTextColor(getResources().getColor(R.color.red));

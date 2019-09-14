@@ -1,6 +1,5 @@
 [ ![Download](https://api.bintray.com/packages/b84330808/maven/rubytextview/images/download.svg) ](https://bintray.com/b84330808/maven/rubytextview/_latestVersion)
 
-
 # RubyTextView
 RubyTextView is an android view that can create TextView with ruby text, like furigana in Japanese or pinyin in Chinese.
 
@@ -19,7 +18,7 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
   android:layout_height="wrap_content"  
   android:text="天気が良いから、散歩しましょう"  
   android:textSize="20sp"  
-  app:rubyText="てん き  い     さん ぽ"  
+  app:rubyText="てん|き||い|||||さん|ぽ"  
   app:rubyTextSize="10sp"
   app:rubyTextColor="@color/black"  
   app:spacing="0sp"/>
@@ -31,7 +30,7 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
   android:layout_height="wrap_content"  
   android:text="今天天氣很好，去散步吧"  
   android:textSize="26sp"
-  app:rubyText="jīn tiān tiān qì hěn hǎo  qù sàn bù ba"  
+  app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"  
   app:rubyTextSize="10sp"
   app:rubyTextColor="@color/blue"  
   app:spacing="5sp"/> 
@@ -41,7 +40,7 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
 RubyTextView rtv = (RubyTextView) findViewById(R.id.test);
 
 rtv.setText("令和")
-   .setRubyText("れい わ");
+   .setRubyText("れい|わ");
    .setTextSize(30);
    .setRubyTextSize(14)
    .setRubyTextColor(getResources().getColor(R.color.red)
@@ -57,7 +56,7 @@ rtv.setText("令和")
 
 ## Known Issue
 - Only single line is supported (multiline is not supported yet).
-- `rubyText` is separated by the `space` in value. So if there are some word you do not want to ruby it, you have to add extra `space` by yourself. For example,  The ruby text of `"委員"` is `"い いん"`(one space in い and いん), but in case of  the ruby text of `"良い点"`, you have to put two space in  い and てん.
+- `rubyText` string is split by `|` character. So if there are some word you do not want to ruby it, you have to add extra `|` by yourself. For example,  The ruby text of `"委員"` is `"い|いん"`, but in case of  the ruby text of `"良い点"` is `い||てん`.
 
 ## TODO
 - Make the processing of adding text and rubyText easily. 
