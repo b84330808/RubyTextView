@@ -33,7 +33,7 @@ The `app:combinedText` format is like this `令|れい 和|わ`.
         app:rubyTextSize="16sp"
         app:combinedText="我|wǒ 喜|xǐ 歡|huān 吃香 蕉|jiāo"/>
 ```
-##### Method2: Set `android:text` and `app:rubyText` seperately.
+#### Method2: Set `android:text` and `app:rubyText` seperately.
 ***In this methond, you have to count the characters skipped by yourself.***
 
 The `app:rubyText` format is like this `れい|わ`. 
