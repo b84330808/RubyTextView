@@ -52,9 +52,8 @@ rtv.setText("令和")
 - `rubyText` is separated by the `space` in value. So if there are some word you do not want to ruby it, you have to add extra `space` by yourself. For example,  The ruby text of `"委員"` is `"い いん"`(one space in い and いん), but in case of  the ruby text of `"良い点"`, you have to put two space in  い and てん.
 
 ## TODO
-- `setRubyTextColor`
 - Make the processing of adding text and rubyText easily. 
-- DEMO
+
 # License
 ```
 Copyright 2019 WEI-LUN LI
