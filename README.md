@@ -74,11 +74,11 @@ rtv.setText("令和")
    .setCombinedText("平|へい 成|せい") 
 ```
 ## Attributes
-`app:rubyText `: The ruby text onto the text, split by whitespace character.
-`app:rubyTextSize `: The size of ruby text.
-`app:rubyTextColor`: The color of ruby text.
-`app:spacing`: The spacing between text and ruby text.
-`app:setCombinedText`: Set the text and ruby text simultaneously by specific format mentioned above.
+- `app:rubyText `: The ruby text onto the text, split by whitespace character.
+- `app:rubyTextSize `: The size of ruby text.
+- `app:rubyTextColor`: The color of ruby text.
+- `app:spacing`: The spacing between text and ruby text.
+- `app:setCombinedText`: Set the text and ruby text simultaneously by specific format mentioned above.
 
 
 
