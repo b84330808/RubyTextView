@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RubyTextView">
+        <attr name="rubyText" format="string"/>
+        <attr name="rubyTextSize" format="dimension"/>
+        <attr name="spacing" format="dimension"/>
+    </declare-styleable>
+</resources>
