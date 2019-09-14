@@ -5,7 +5,8 @@
 RubyTextView is an android view that can create TextView with ruby text, like furigana in Japanese or pinyin in Chinese.
 
 ## Preview
-![preview](https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.png)
+<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.png" alt="preview" width="300"/>
+
 
 ## Gradle
 ```java
@@ -35,14 +36,13 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
 ```
 ## Java
 ```java
-    RubyTextView rtv = (RubyTextView) findViewById(R.id.test);
+RubyTextView rtv = (RubyTextView) findViewById(R.id.test);
 
-    rtv.setText("令和")
-            .setRubyText("れい わ");
-            .setTextSize(30);
-            .setRubyTextSize(14)
-            .setSpacing(5)
-            
+rtv.setText("令和")
+   .setRubyText("れい わ");
+   .setTextSize(30);
+   .setRubyTextSize(14)
+   .setSpacing(5)          
 ```
 ## Attributes
 `app:spacing="5sp"`: The spacing between text and ruby text.
