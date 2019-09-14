@@ -12,8 +12,8 @@ RubyTextView is an android view that can create TextView with ruby text, like fu
 compile 'me.weilunli.views:rubytextview:1.1.0'
 ```
 ## How to use
-#### XML Layout (Two methods)
-##### Method1: Set `app:combinedText` (Recommend)
+### XML Layout (Two methods)
+#### Method1: Set `app:combinedText` (Recommend)
 
 The `app:combinedText` format is like this `令|れい 和|わ`. 
 1. Put the `|` between the text and ruby text 
@@ -61,7 +61,7 @@ The `app:rubyText` format is like this `れい|わ`.
   app:rubyTextColor="@color/black"/>
 
 ```
-## Java
+###  Java
 ```java
 RubyTextView rtv = (RubyTextView) findViewById(R.id.test);
 
