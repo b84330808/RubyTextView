@@ -42,6 +42,8 @@ public class RubyTextView extends AppCompatTextView {
         try {
             rubyText = ta.getString(R.styleable.RubyTextView_rubyText);
             rubyTextSize = ta.getDimension(R.styleable.RubyTextView_rubyTextSize, 50f);
+            rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor,
+                    ContextCompat.getColor(getContext(), R.color.black));
             spacing = ta.getDimension(R.styleable.RubyTextView_spacing, 10f);
         } finally {
             ta.recycle();

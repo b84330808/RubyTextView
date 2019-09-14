@@ -20,7 +20,8 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
   android:text="天気が良いから、散歩しましょう"  
   android:textSize="20sp"  
   app:rubyText="てん き  い     さん ぽ"  
-  app:rubyTextSize="10sp"  
+  app:rubyTextSize="10sp"
+  app:rubyTextColor="@color/black"  
   app:spacing="0sp"/>
   
 <!------------------------------------>
@@ -31,7 +32,8 @@ compile 'me.weilunli.views:rubytextview:1.0.0'
   android:text="今天天氣很好，去散步吧"  
   android:textSize="26sp"
   app:rubyText="jīn tiān tiān qì hěn hǎo  qù sàn bù ba"  
-  app:rubyTextSize="10sp"  
+  app:rubyTextSize="10sp"
+  app:rubyTextColor="@color/blue"  
   app:spacing="5sp"/> 
 ```
 ## Java
@@ -42,10 +44,16 @@ rtv.setText("令和")
    .setRubyText("れい わ");
    .setTextSize(30);
    .setRubyTextSize(14)
+   .setRubyTextColor(getResources().getColor(R.color.red)
    .setSpacing(5)          
 ```
 ## Attributes
-`app:spacing="5sp"`: The spacing between text and ruby text.
+`app:rubyText `: The ruby text onto the text, split by whitespace character.
+`app:rubyTextSize `: The size of ruby text.
+`app:rubyTextColor`: The color of ruby text.
+`app:spacing`: The spacing between text and ruby text.
+
+
 
 ## Known Issue
 - Only single line is supported (multiline is not supported yet).

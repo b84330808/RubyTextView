@@ -3,6 +3,7 @@
     <declare-styleable name="RubyTextView">
         <attr name="rubyText" format="string"/>
         <attr name="rubyTextSize" format="dimension"/>
+        <attr name="rubyTextColor" format="color"/>
         <attr name="spacing" format="dimension"/>
     </declare-styleable>
 </resources>
