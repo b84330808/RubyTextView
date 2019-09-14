@@ -1,6 +1,7 @@
 package me.weilunli.views;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -10,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 
 
 public class RubyTextView extends AppCompatTextView {
@@ -22,6 +24,7 @@ public class RubyTextView extends AppCompatTextView {
     private Rect mRect;
     private String rubyText;
     private float rubyTextSize;
+    private int rubyTextColor;
     private float spacing;
 
 
@@ -48,6 +51,7 @@ public class RubyTextView extends AppCompatTextView {
     private void initialize() {
         rubyText = "";
         rubyTextSize = 50f;
+        rubyTextColor = ContextCompat.getColor(getContext(), R.color.black);
         spacing = 10f;
         textPaint = new Paint();
         rubyTextPaint = new Paint();
@@ -92,6 +96,7 @@ public class RubyTextView extends AppCompatTextView {
 
         // Draw ruby text
         rubyTextPaint.setTextSize((getRubyTextSize()));
+        rubyTextPaint.setColor(rubyTextColor);
         String[] splited = getRubyText().split(" ");
         for (int i = 0; i < splited.length; i++) {
             rubyTextPaint.getTextBounds(splited[i], 0, splited[i].length(), mRect);
@@ -127,6 +132,12 @@ public class RubyTextView extends AppCompatTextView {
         invalidate();
         requestLayout();
     }
+
+    public void setRubyTextColor(int color) {
+        rubyTextColor = color;
+        invalidate();
+    }
+
 
     public void setSpacing(float spacing) {
         this.spacing = dp2px(spacing);

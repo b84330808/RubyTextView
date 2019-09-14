@@ -1,1 +1,1 @@
-include ':rubytextview'
+include ':rubytextview', ':sample'
