@@ -8,35 +8,24 @@ import me.weilunli.views.RubyTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout mainLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RubyTextView rtv1 = new RubyTextView(this);
-        rtv1.setText("令和");
-        rtv1.setRubyText("れい|わ");
-        rtv1.setTextSize(30);
-        rtv1.setRubyTextSize(14);
-        rtv1.setRubyTextColor(getResources().getColor(R.color.red));
-        rtv1.setSpacing(14);
-        rtv1.setBackgroundColor(getResources().getColor(R.color.yellow));
-        rtv1.setTextColor(getResources().getColor(R.color.blue));
+        RubyTextView rtv = new RubyTextView(this);
+        rtv.setCombinedText("全|すべ ての 瞬間|しゅんかん に 価値|かち がある。あなたの 心|こころ に 従|したが いなさい。");
+        rtv.setTextSize(24);
+        rtv.setRubyTextSize(12);
+        rtv.setRubyTextColor(getResources().getColor(R.color.green)); //OK
+        rtv.setTextColor(getResources().getColor(R.color.blue)); //OK
+        rtv.setBackgroundColor(getResources().getColor(R.color.bg));
+        rtv.setSpacing(2);
+        rtv.setLetterSpacing(0.1f);
 
-        RubyTextView rtv2 = new RubyTextView(this);
-        rtv2.setTextSize(30);
-        rtv2.setRubyTextSize(14);
-        rtv2.setRubyTextColor(getResources().getColor(R.color.red));
-        rtv2.setSpacing(14);
-        rtv2.setTextColor(getResources().getColor(R.color.blue));
-        rtv2.setCombinedText("平|へい 成|せい");
-
-        mainLayout = findViewById(R.id.linearLayout);
-        mainLayout.addView(rtv1);
-        mainLayout.addView(rtv2);
-
+        LinearLayout mainLayout = findViewById(R.id.linearLayout);
+        mainLayout.addView(rtv);
 
     }
+
 }

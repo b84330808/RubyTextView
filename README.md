@@ -9,82 +9,62 @@ RubyTextView is an android view that can create TextView with ruby text, like fu
 
 ## Gradle
 ```java
-compile 'me.weilunli.views:rubytextview:1.1.0'
+compile 'me.weilunli.views:rubytextview:1.2.0'
 ```
 ## How to use
-### XML Layout (Two methods)
-#### Method1: Set `app:combinedText` (Recommend)
+### XML Layout 
+####  Set `app:combinedText` (Recommend)
 
 The `app:combinedText` format is like this `令|れい 和|わ`. 
 1. Put the `|` between the text and ruby text 
 2. put one ` ` (white space) before text and one ` ` after ruby text.
 ```java
+
+// example 1
 <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        app:combinedText="令|れい 和|わ"
         app:rubyTextSize="16sp"
-        app:combinedText="天|てん 気|き が 良|い い  "/>
+        app:spacing="1sp"/>
 
-<me.weilunli.views.RubyTextView
+// example 2
+    <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        app:rubyTextSize="16sp"
-        app:combinedText="我|wǒ 喜|xǐ 歡|huān 吃香 蕉|jiāo"/>
-```
-#### Method2: Set `android:text` and `app:rubyText` seperately.
-***In this methond, you have to count the characters skipped by yourself.***
-
-The `app:rubyText` format is like this `れい|わ`. 
-
-```java
-<me.weilunli.views.RubyTextView  
-  android:layout_width="wrap_content"  
-  android:layout_height="wrap_content"  
-  android:text="平成"  
-  android:textSize="26sp"
-  app:rubyText="へい|せい"  
-  app:rubyTextSize="10sp"
-  app:spacing="5sp"/> 
-
-
-<!------>
-
-<me.weilunli.views.RubyTextView  
-  android:layout_width="wrap_content"  
-  android:layout_height="wrap_content"  
-  android:text="天気が良いから、散歩しましょう"  
-  android:textSize="20sp"  
-  app:rubyText="てん|き||い|||||さん|ぽ"  
-  app:rubyTextSize="10sp"
-  app:rubyTextColor="@color/black"/>
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 去|qù 散|sàn 步|bù 吧|ba"
+        app:rubyTextSize="14sp"
+        android:textColor="@color/green"
+        android:background="@color/bg"
+        app:rubyTextColor="@color/blue"
+        app:spacing="5sp"/>
 
 ```
+
 ###  Java
 ```java
 RubyTextView rtv = (RubyTextView) findViewById(R.id.test);
 
-rtv.setText("令和")
-   .setRubyText("れい|わ");
-   .setTextSize(30);
-   .setRubyTextSize(14)
-   .setRubyTextColor(getResources().getColor(R.color.red)
-   .setSpacing(5) 
-   .setCombinedText("平|へい 成|せい") 
+rtv.setCombinedText("全|すべ ての 瞬間|しゅんかん に 価値|かち がある。");
+    setTextSize(24);
+    setRubyTextSize(12);
+    setRubyTextColor(getResources().getColor(R.color.green));
+    setTextColor(getResources().getColor(R.color.blue));
+    setBackgroundColor(getResources().getColor(R.color.bg));
+    setSpacing(2);
+    setLetterSpacing(0.1f);
 ```
 ## Attributes
-- `app:rubyText `: The ruby text onto the text, split by whitespace character.
+- `app:combinedText `: The text and ruby text. e.g.`你|nǐ  好|hǎo` 
 - `app:rubyTextSize `: The size of ruby text.
 - `app:rubyTextColor`: The color of ruby text.
 - `app:spacing`: The spacing between text and ruby text.
-- `app:setCombinedText`: Set the text and ruby text simultaneously by specific format mentioned above.
-
-
 
 ## Known Issue
-- Only single line is supported (multiline is not supported yet).
-- `rubyText` string is split by `|` character. So if there are some word you do not want to ruby it, you have to add extra `|` by yourself. For example,  The ruby text of `"委員"` is `"い|いん"`, but in case of  the ruby text of `"良い点"` is `い||てん`.
+- If there are some English sentences in `combinedText`, some bugs will occur. 
 
 <!-- ## TODO
 - Make the processing of adding text and rubyText easily.  -->

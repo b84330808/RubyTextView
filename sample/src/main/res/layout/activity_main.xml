@@ -11,86 +11,59 @@
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="天気が良いから、散歩しましょう"
-        android:textSize="20sp"
-        app:rubyText="てん|き||い|||||さん|ぽ"
-        app:rubyTextSize="10sp"
-        app:spacing="0sp"/>
-
-    <me.weilunli.views.RubyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="天気が良いから、散歩しましょう"
-        android:textSize="20sp"
-        app:rubyText="てん|き||い|||||さん|ぽ"
-        app:rubyTextSize="10sp"
-        app:spacing="5sp"
-        android:layout_marginTop="10dp"/>
-
-    <me.weilunli.views.RubyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="今天天氣很好，去散步吧"
-        android:textSize="26sp"
-        android:textColor="@color/red"
-        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
-        app:rubyTextSize="10sp"
-        app:spacing="5sp"
-        android:layout_marginTop="10dp"/>
-
-    <me.weilunli.views.RubyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="今天天气很好，去散步吧"
         android:textSize="30sp"
-        android:textColor="@color/red"
-        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
-        app:rubyTextSize="16sp"
-        app:rubyTextColor="@color/blue"
-        app:spacing="2sp"
-        android:layout_marginTop="10dp"/>
+        app:combinedText="令|れい 和|わ"
+        app:rubyTextSize="16sp"/>
 
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textColor="@color/red"
-        android:text="大家好"
-        app:rubyText="jīn|tiān|tiān|qì|hěn|hǎo||qù|sàn|bù|ba"
-        app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 天|てん 気|き が 良|い い  "
-        app:rubyTextSize="16sp"
-        app:rubyTextColor="@color/blue"
-        app:spacing="2sp"
-        android:layout_marginTop="10dp"/>
-
-    <me.weilunli.views.RubyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="大丈夫"
-        android:textSize="30sp"
-        android:textColor="@color/red"
-        app:rubyText="|だいじょうぶ"
-        app:rubyTextSize="16sp"
-        app:rubyTextColor="@color/blue"
-        app:spacing="2sp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="22sp"
+        android:letterSpacing="0"
+        app:combinedText="天|てん 気|き が 良|い いから、 散|さん 歩|ぽ しましょう"
+        app:rubyTextSize="10sp"
+        app:spacing="1sp"/>
 
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="大丈夫"
-        android:textSize="32sp"
-        app:rubyText="|だいじょうぶ"
-        app:rubyTextSize="16sp" />
+        android:textSize="30sp"
+        app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 去|qù 散|sàn 步|bù 吧|ba"
+        app:rubyTextSize="14sp"
+        android:textColor="@color/green"
+        android:background="@color/bg"
+        app:rubyTextColor="@color/blue"
+        app:spacing="5sp"/>
 
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        app:rubyText="|だいじょうぶ"
-        app:rubyTextSize="16sp"
-        app:combinedText="我|wǒ 喜|xǐ 歡|huān 吃香 蕉|jiāo"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:combinedText=" 你|ㄋㄧˇ 好|ㄏㄠˇ OneForAll|- 大丈夫|だいじょうぶ"
+        app:rubyTextSize="10sp"
+        android:textColor="@color/red"
+        app:rubyTextColor="@color/blue"
+        android:textStyle="bold|italic"
+        android:letterSpacing="0.2"
+        app:spacing="-2sp"/>
+
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        app:rubyTextColor="@color/black"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:combinedText="自|じ 分|ぶん 自|じ 身|しん で 確|かく 認|にん してから  決|けつ 断|だん することが、 達|たつ 人|じん への 一歩|いっぽ なのです。"
+        android:lineSpacingExtra="3dp"
+        app:rubyTextSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:letterSpacing="0.2"/>
+
 
 </LinearLayout>
