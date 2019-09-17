@@ -93,6 +93,7 @@ public class RubyTextView extends AppCompatTextView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
         int width = MeasureSpec.getSize(widthMeasureSpec);
         float cur_x = 0;
         int lineCount = 1;
@@ -173,6 +174,7 @@ public class RubyTextView extends AppCompatTextView {
 
     private void updateLineheight(){
         lineheight = getTextSize() + getRubyTextSize() + getLineSpacingExtra() + getSpacing();
+        firstLineheight = lineheight - getLineSpacingExtra();
     }
 
     public void setCombinedText(String text) {

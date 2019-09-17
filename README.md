@@ -5,11 +5,12 @@ RubyTextView is an android view that can create TextView with ruby text, like fu
 
 ## Preview
 <img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.jpg" alt="preview" width="300"/>
+<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/note.jpg" alt="preview" width="500"/>
 
 
 ## Gradle
 ```java
-compile 'me.weilunli.views:rubytextview:1.2.0'
+compile 'me.weilunli.views:rubytextview:1.3.1'
 ```
 ## How to use
 ### XML Layout 
@@ -58,8 +59,8 @@ rtv.setCombinedText("全|すべ ての 瞬間|しゅんかん に 価値|かち 
     setLetterSpacing(0.1f);
 ```
 ## Attributes
-- `app:combinedText `: The text and ruby text. e.g.`你|nǐ  好|hǎo` 
-- `app:rubyTextSize `: The size of ruby text.
+- `app:combinedText`: The text and ruby text. e.g.`你|nǐ  好|hǎo` 
+- `app:rubyTextSize`: The size of ruby text.
 - `app:rubyTextColor`: The color of ruby text.
 - `app:spacing`: The spacing between text and ruby text.
 
