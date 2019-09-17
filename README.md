@@ -5,7 +5,7 @@ RubyTextView is an android view that can create TextView with ruby text, like fu
 
 ## Preview
 <img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/preview.jpg" alt="preview" width="300"/>
-<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/note.jpg" alt="preview" width="500"/>
+<img src="https://github.com/b84330808/RubyTextView/blob/master/screen_shot/note.jpg" alt="preview" width="700"/>
 
 
 ## Gradle
