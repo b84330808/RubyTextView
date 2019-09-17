@@ -13,7 +13,7 @@ compile 'me.weilunli.views:rubytextview:1.2.0'
 ```
 ## How to use
 ### XML Layout 
-####  Set `app:combinedText` (Recommend)
+####  Set `app:combinedText`
 
 The `app:combinedText` format is like this `令|れい 和|わ`. 
 1. Put the `|` between the text and ruby text 
@@ -30,17 +30,17 @@ The `app:combinedText` format is like this `令|れい 和|わ`.
         app:spacing="1sp"/>
 
 // example 2
-    <me.weilunli.views.RubyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 去|qù 散|sàn 步|bù 吧|ba"
-        app:rubyTextSize="14sp"
-        android:textColor="@color/green"
-        android:background="@color/bg"
-        app:rubyTextColor="@color/blue"
-        app:spacing="5sp"/>
+<me.weilunli.views.RubyTextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:textSize="30sp"
+    app:combinedText="天|tiān 气|qì 很|hěn 好|hǎo 、 去|qù 散|sàn 步|bù 吧|ba"
+    app:rubyTextSize="14sp"
+    android:textColor="@color/green"
+    android:background="@color/bg"
+    app:rubyTextColor="@color/blue"
+    app:spacing="5sp"/>
 
 ```
 

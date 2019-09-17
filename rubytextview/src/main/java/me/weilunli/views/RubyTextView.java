@@ -21,7 +21,10 @@ public class RubyTextView extends AppCompatTextView {
     private float rubyTextSize= 28f;
     private int rubyTextColor ;
     private float spacing = 0f;
+
+    // Need to address first line because it don't need extra spacing.
     private float lineheight = 0;
+    private float firstLineheight = 0;
     StringBuilder originalText;
     List<String[]> combinedTextArray;
 
@@ -67,6 +70,7 @@ public class RubyTextView extends AppCompatTextView {
         rubyTextPaint.setTextSize((getRubyTextSize()));
         rubyTextPaint.setColor(getRubyTextColor());
         lineheight = getTextSize() + getRubyTextSize() + getLineSpacingExtra() + getSpacing();
+        firstLineheight = lineheight - getLineSpacingExtra();
         splitCombinedText();
         setLineHeight((int) lineheight);
     }
@@ -75,7 +79,7 @@ public class RubyTextView extends AppCompatTextView {
     private int getMySize(int measureSpec, int mBoundLength) {
         int result;
         int specMode = MeasureSpec.getMode(measureSpec);
-        int specSize = MeasureSpec.getSize(measureSpec); //get px
+        int specSize = MeasureSpec.getSize(measureSpec);
         if (specMode == MeasureSpec.EXACTLY) {
             result = specSize;
         } else if (specMode == MeasureSpec.AT_MOST) {
@@ -95,36 +99,52 @@ public class RubyTextView extends AppCompatTextView {
 
         for(String[] t : combinedTextArray) {
             float textWidth = textPaint.measureText(t[0]);
-            if (cur_x + textWidth > width) {
+
+            // if t[0] == '\n'
+            if(t[0].equals(System.getProperty("line.separator"))){
+                cur_x = 0;
+                lineCount++;
+                continue;
+            }
+
+            if (cur_x + textWidth > width){
                 cur_x = 0;
                 lineCount++;
             }
+
             cur_x += textWidth;
         }
 
         // total height
         int height = getMySize(heightMeasureSpec,
-                (int) (lineheight * lineCount) + getLastBaselineToBottomHeight());
-
+                (int) (firstLineheight + lineheight * (lineCount-1)) + getLastBaselineToBottomHeight());
         setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), height);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        boolean isFirstLine = true;
         float cur_x = 0;
-        float cur_y = lineheight;
-
+        float cur_y = firstLineheight;
         for(String[] t : combinedTextArray) {
             /* **********
              * Draw text *
              * ***********/
             float textWidth = textPaint.measureText(t[0]);
+
+            if(t[0].equals(System.getProperty("line.separator"))){
+                cur_x = 0;
+                if(isFirstLine) isFirstLine = false;
+                cur_y += lineheight;
+                continue;
+            }
+
             if (cur_x + textWidth > getWidth()) {
                 cur_x = 0;
+                if(isFirstLine) isFirstLine = false;
                 cur_y += lineheight;
             }
             canvas.drawText(t[0], cur_x, cur_y, textPaint);
-
 
             /* ****************
              * Draw ruby text *
@@ -206,18 +226,18 @@ public class RubyTextView extends AppCompatTextView {
         combinedTextArray.clear();
         originalText.setLength(0);
         String[] split = getCombinedText().split(" ");
-        for (int i = 0; i < split.length; i++) {
-            String[] t = split[i].split("\\|");
-            if(t.length==2){
+        for (String value : split) {
+            String[] t = value.split("\\|");
+            if (t.length == 2) {
                 if ((t[1].equals("-"))) {
                     combinedTextArray.add(new String[]{t[0], ""});
                 } else {
                     combinedTextArray.add(new String[]{t[0], t[1]});
                 }
-            }else{
-                for(int j = 0; j<t[0].length(); j++){
+            } else {
+                for (int j = 0; j < t[0].length(); j++) {
                     String s = String.valueOf(t[0].charAt(j));
-                    combinedTextArray.add(new String[]{s,""});
+                    combinedTextArray.add(new String[]{s, ""});
                 }
             }
             originalText.append(t[0]);

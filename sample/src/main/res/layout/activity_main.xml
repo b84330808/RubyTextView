@@ -18,9 +18,19 @@
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:combinedText="令|れい \n 和|わ"
+        app:rubyTextSize="16sp"
+        app:spacing="5dp"
+        android:lineSpacingExtra="20dp"
+        android:background="@color/bg"/>
+
+    <me.weilunli.views.RubyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="22sp"
         android:letterSpacing="0"
-        app:combinedText="天|てん 気|き が 良|い いから、 散|さん 歩|ぽ しましょう"
+        app:combinedText="天|てん 気|き が 良|い いから、\n 散|さん 歩|ぽ しましょう"
         app:rubyTextSize="10sp"
         app:spacing="1sp"/>
 
@@ -53,17 +63,17 @@
     <me.weilunli.views.RubyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
+        android:textSize="22sp"
         app:rubyTextColor="@color/black"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:combinedText="自|じ 分|ぶん 自|じ 身|しん で 確|かく 認|にん してから  決|けつ 断|だん することが、 達|たつ 人|じん への 一歩|いっぽ なのです。"
         android:lineSpacingExtra="3dp"
-        app:rubyTextSize="14sp"
+        app:rubyTextSize="12sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:letterSpacing="0.2"/>
+        android:letterSpacing="0.05"/>
 
 
 </LinearLayout>
