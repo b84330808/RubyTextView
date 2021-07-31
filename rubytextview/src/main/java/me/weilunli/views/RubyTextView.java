@@ -237,6 +237,9 @@ public class RubyTextView extends AppCompatTextView {
     public void splitCombinedText() {
         combinedTextArray.clear();
         originalText.setLength(0);
+        if(getCombinedText() == null)
+            return;
+
         String[] split = getCombinedText().split(" ");
         for (String value : split) {
             String[] t = value.split("\\|");
