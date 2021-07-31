@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,7 @@ public class RubyTextView extends AppCompatTextView {
     private float rubyTextSize= 28f;
     private int rubyTextColor ;
     private float spacing = 0f;
+    private float lineSpacingExtra = 0f;
 
     // Need to address first line because it don't need extra spacing.
     private float lineheight = 0;
@@ -44,9 +45,9 @@ public class RubyTextView extends AppCompatTextView {
         try {
             combinedText = ta.getString(R.styleable.RubyTextView_combinedText);
             rubyTextSize = ta.getDimension(R.styleable.RubyTextView_rubyTextSize, 28f);
-            rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor,
-                    ContextCompat.getColor(getContext(), R.color.black));
+            rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor, rubyTextColor);
             spacing = ta.getDimension(R.styleable.RubyTextView_spacing, 0);
+            lineSpacingExtra = ta.getDimension(R.styleable.RubyTextView_lineSpacingExtra, 0);
 
         } finally {
             ta.recycle();
@@ -75,6 +76,13 @@ public class RubyTextView extends AppCompatTextView {
         setLineHeight((int) lineheight);
     }
 
+    public float getLineSpacingExtra() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            return super.getLineSpacingExtra();
+        }
+        return lineSpacingExtra;
+    }
+
 
     private int getMySize(int measureSpec, int mBoundLength) {
         int result;
@@ -97,9 +105,12 @@ public class RubyTextView extends AppCompatTextView {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         float cur_x = 0;
         int lineCount = 1;
+        float maxwidth = 0;
 
         for(String[] t : combinedTextArray) {
             float textWidth = textPaint.measureText(t[0]);
+            float rubyWidth = rubyTextPaint.measureText(t[1]);
+            float elementWidth = Math.max(textWidth, rubyWidth);
 
             // if t[0] == '\n'
             if(t[0].equals(System.getProperty("line.separator"))){
@@ -108,18 +119,20 @@ public class RubyTextView extends AppCompatTextView {
                 continue;
             }
 
-            if (cur_x + textWidth > width){
+            if (cur_x + elementWidth > width){
                 cur_x = 0;
                 lineCount++;
             }
 
-            cur_x += textWidth;
+            cur_x += elementWidth;
+            if(cur_x > maxwidth)
+                maxwidth = cur_x;
         }
 
         // total height
         int height = getMySize(heightMeasureSpec,
                 (int) (firstLineheight + lineheight * (lineCount-1)) + getLastBaselineToBottomHeight());
-        setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), height);
+        setMeasuredDimension((int) maxwidth, height);
     }
 
     @Override
@@ -132,6 +145,8 @@ public class RubyTextView extends AppCompatTextView {
              * Draw text *
              * ***********/
             float textWidth = textPaint.measureText(t[0]);
+            float rubyWidth = rubyTextPaint.measureText(t[1]);
+            float elementWidth = Math.max(textWidth, rubyWidth);
 
             if(t[0].equals(System.getProperty("line.separator"))){
                 cur_x = 0;
@@ -145,17 +160,17 @@ public class RubyTextView extends AppCompatTextView {
                 if(isFirstLine) isFirstLine = false;
                 cur_y += lineheight;
             }
-            canvas.drawText(t[0], cur_x, cur_y, textPaint);
+            float text_posX = cur_x + (1 / 2f) * (elementWidth - textWidth);
+            canvas.drawText(t[0], text_posX, cur_y, textPaint);
 
             /* ****************
              * Draw ruby text *
              * ****************/
-            float rubyText_posX = cur_x +
-                    (1 / 2f) * (textWidth - rubyTextPaint.measureText(t[1]));
+            float rubyText_posX = cur_x + (1 / 2f) * (elementWidth - rubyWidth);
             canvas.drawText(t[1], rubyText_posX, cur_y - getTextSize() - getSpacing(), rubyTextPaint);
 
             // update cur_x position
-            cur_x += textWidth;
+            cur_x += elementWidth;
         }
     }
 
@@ -227,6 +242,9 @@ public class RubyTextView extends AppCompatTextView {
     public void splitCombinedText() {
         combinedTextArray.clear();
         originalText.setLength(0);
+        if(getCombinedText() == null)
+            return;
+
         String[] split = getCombinedText().split(" ");
         for (String value : split) {
             String[] t = value.split("\\|");
