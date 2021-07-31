@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
@@ -21,6 +22,7 @@ public class RubyTextView extends AppCompatTextView {
     private float rubyTextSize= 28f;
     private int rubyTextColor ;
     private float spacing = 0f;
+    private float lineSpacingExtra = 0f;
 
     // Need to address first line because it don't need extra spacing.
     private float lineheight = 0;
@@ -47,6 +49,7 @@ public class RubyTextView extends AppCompatTextView {
             rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor,
                     ContextCompat.getColor(getContext(), R.color.black));
             spacing = ta.getDimension(R.styleable.RubyTextView_spacing, 0);
+            lineSpacingExtra = ta.getDimension(R.styleable.RubyTextView_lineSpacingExtra, 0);
 
         } finally {
             ta.recycle();
@@ -73,6 +76,13 @@ public class RubyTextView extends AppCompatTextView {
         firstLineheight = lineheight - getLineSpacingExtra();
         splitCombinedText();
         setLineHeight((int) lineheight);
+    }
+
+    public float getLineSpacingExtra() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            return super.getLineSpacingExtra();
+        }
+        return lineSpacingExtra;
     }
 
 
