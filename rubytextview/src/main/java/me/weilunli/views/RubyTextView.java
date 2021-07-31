@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +45,7 @@ public class RubyTextView extends AppCompatTextView {
         try {
             combinedText = ta.getString(R.styleable.RubyTextView_combinedText);
             rubyTextSize = ta.getDimension(R.styleable.RubyTextView_rubyTextSize, 28f);
-            rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor,
-                    ContextCompat.getColor(getContext(), R.color.black));
+            rubyTextColor = ta.getColor(R.styleable.RubyTextView_rubyTextColor, rubyTextColor);
             spacing = ta.getDimension(R.styleable.RubyTextView_spacing, 0);
             lineSpacingExtra = ta.getDimension(R.styleable.RubyTextView_lineSpacingExtra, 0);
 
