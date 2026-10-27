@@ -1,6 +1,6 @@
 # RubyText
 
-[![CI](https://github.com/b84330808/RubyTextView/actions/workflows/ci.yml/badge.svg?branch=v2)](https://github.com/b84330808/RubyTextView/actions/workflows/ci.yml)
+[![CI](https://github.com/b84330808/RubyTextView/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/b84330808/RubyTextView/actions/workflows/ci.yml)
 
 Ruby text for Jetpack Compose: Japanese furigana, Chinese Pinyin, and Zhuyin
 (Bopomofo) set **vertically to the right of each character with tone marks**, the
@@ -46,7 +46,7 @@ rewritten in Kotlin for Compose. The old Java `View` is on the
 
 ## Installation
 
-Not published yet. Once `v2.0.0` is tagged it will be on JitPack:
+Available on [JitPack](https://jitpack.io/#b84330808/RubyTextView):
 
 ```kotlin
 // settings.gradle.kts
