@@ -1,0 +1,15 @@
+{
+  "mcbopomofo": {
+    "commit": "e65f2763d03ea381c0f40fa132df32412e8b33b9",
+    "license": "MIT"
+  },
+  "cedict": {
+    "date": "2026-10-25T09:04:10Z",
+    "entries": "125319",
+    "license": "CC BY-SA 4.0"
+  },
+  "unihan": {
+    "version": "18.0.0",
+    "license": "Unicode-3.0"
+  }
+}
