@@ -1,0 +1,6 @@
+# JitPack: com.github.b84330808.RubyTextView:<artifact>:<tag>
+# Artifacts: rubytext-compose, rubytext-core, rubytext-zh, rubytext-ja
+jdk:
+  - openjdk17
+install:
+  - ./gradlew --no-scan -PGROUP=com.github.b84330808.RubyTextView -PVERSION_NAME=$VERSION publishToMavenLocal
